@@ -1,0 +1,43 @@
+{
+  "repo": "gchq/CyberChef",
+  "sha": "8cd426dd4f40f1423912d5fad91b578a86a65112",
+  "version": "v11.5.0",
+  "fingerprint": "031b9140ce622c24bdd79540db165aa3b6c9f0323c76cd4ebe5d96ba8719e5e3",
+  "declared": "Apache-2.0",
+  "detected": [
+    "Apache-2.0"
+  ],
+  "status": "preliminary_only",
+  "issues": [],
+  "obligations": "保留许可、版权及适用NOTICE；修改文件按要求标记；另外审核依赖和素材。",
+  "dependency_indicators": [
+    "LICENSE",
+    "package-lock.json",
+    "package.json",
+    "src/core/vendor/DisassembleX86-64.mjs",
+    "src/core/vendor/ascon.mjs",
+    "src/core/vendor/gost/gostCipher.mjs",
+    "src/core/vendor/gost/gostCoding.mjs",
+    "src/core/vendor/gost/gostCrypto.mjs",
+    "src/core/vendor/gost/gostDigest.mjs",
+    "src/core/vendor/gost/gostEngine.mjs",
+    "src/core/vendor/gost/gostRandom.mjs",
+    "src/core/vendor/gost/gostSign.mjs",
+    "src/core/vendor/htmlEntities/entity.json",
+    "src/core/vendor/htmlEntities/entity.txt",
+    "src/core/vendor/remove-exif.mjs",
+    "src/core/vendor/tesseract/lang-data/eng.traineddata.gz",
+    "src/web/static/fonts/MaterialIcons-Regular.ttf",
+    "src/web/static/fonts/bmfonts/Roboto72White.fnt",
+    "src/web/static/fonts/bmfonts/Roboto72White.png",
+    "src/web/static/fonts/bmfonts/RobotoBlack72White.fnt",
+    "src/web/static/fonts/bmfonts/RobotoBlack72White.png",
+    "src/web/static/fonts/bmfonts/RobotoMono72White.fnt",
+    "src/web/static/fonts/bmfonts/RobotoMono72White.png",
+    "src/web/static/fonts/bmfonts/RobotoSlab72White.fnt",
+    "src/web/static/fonts/bmfonts/RobotoSlab72White.png"
+  ],
+  "dependency_audit_complete": false,
+  "commercial_approval": false,
+  "note": "自动识别仅为初筛；宽松主许可证不代表全部文件或计划商品已获授权。"
+}

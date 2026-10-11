@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+automation/work/
+automation/runs/
+*.log

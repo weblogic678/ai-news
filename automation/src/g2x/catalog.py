@@ -1,0 +1,67 @@
+CATALOG = [
+    {
+        "repo": "pdfcpu/pdfcpu", "rank": 1, "name": "PDF批处理助手",
+        "title": "PDF批量合并拆分｜中文脚本与使用教程｜基于开源pdfcpu",
+        "offer": "自编批处理脚本、中文教程、样例文件和约定范围内的安装指导",
+        "audience": "需要重复整理大量普通PDF文件的办公用户",
+        "features": ["按文件名排序合并PDF", "按页拆分PDF", "批量优化PDF"],
+        "limits": ["命令行工具，需要Python和官方pdfcpu程序", "优化不保证文件变小", "不提供OCR、破解密码或去除水印服务", "不处理已加密或含数字签名的文件", "Windows端仍需实机验证"],
+        "prices": [29, 69], "scores": [24, 20, 18, 12, 8],
+        "decision": "首发优先；先销售自编脚本与教程，不打包上游二进制",
+        "source": "https://pdfcpu.io/getting_started/usage/",
+    },
+    {
+        "repo": "gchq/CyberChef", "rank": 2, "name": "离线文本转换教程包",
+        "title": "离线文本转换｜编码解码与中文配方教程｜基于开源CyberChef",
+        "offer": "原创中文场景教程、可导入配方和本地运行指导",
+        "audience": "需要处理编码、格式和校验值的技术及办公用户",
+        "features": ["Base64与URL编码转换", "文本哈希与校验", "可导入配方演示"],
+        "limits": ["不提供破解、入侵或绕过权限服务", "离线配方包尚待功能测试", "不承诺任意数据格式均可处理"],
+        "prices": [19, 49], "scores": [20, 20, 17, 12, 8],
+        "decision": "第二批；生成三份原创配方，完成导入测试再上架",
+        "source": "https://github.com/gchq/CyberChef",
+    },
+    {
+        "repo": "localsend/localsend", "rank": 4, "name": "局域网传文件配置服务",
+        "title": "手机电脑局域网传文件｜安装与网络排查｜基于开源LocalSend",
+        "offer": "官方安装来源指引、局域网设置教程和限定范围排障服务",
+        "audience": "需要手机与电脑互传文件但不熟悉网络设置的用户",
+        "features": ["跨设备传文件", "局域网设置指导", "防火墙与设备发现排查"],
+        "limits": ["软件原项目免费", "企业网络隔离可能导致无法互通", "需买家配合检查两台设备", "未完成双设备实测"],
+        "prices": [19, 59], "scores": [25, 21, 12, 7, 8],
+        "decision": "服务型候选；付费价值偏低，控制售后时间后再试卖",
+        "source": "https://github.com/localsend/localsend",
+    },
+    {
+        "repo": "excalidraw/excalidraw", "rank": 3, "name": "手绘流程图原创模板",
+        "title": "手绘流程图模板与使用教程｜适配开源Excalidraw",
+        "offer": "原创可编辑流程图模板和使用教程，不销售软件授权",
+        "audience": "需要制作汇报流程图和技术架构草图的用户",
+        "features": ["可编辑模板", "导出图片指导", "原创流程示例"],
+        "limits": ["模板尚未制作与验证", "不承诺第三方图标和字体可商用", "首期不做完整自托管部署"],
+        "prices": [19, 49], "scores": [22, 17, 18, 10, 8],
+        "decision": "首批第三项；原创审批、部署、备份三份模板，完成导入测试后试卖",
+        "source": "https://github.com/excalidraw/excalidraw",
+    },
+    {
+        "repo": "GoogleChromeLabs/squoosh", "rank": 5, "name": "图片压缩使用教程",
+        "title": "图片压缩中文教程与参数示例｜基于开源Squoosh",
+        "offer": "原创参数对比和使用指导，不承诺软件独家授权",
+        "audience": "需要手动压缩网页图片的用户",
+        "features": ["图片压缩参数讲解", "格式选择说明", "压缩质量对比"],
+        "limits": ["编解码器需单独审核许可", "批量处理能力不作承诺", "离线运行和当前维护状态需测试"],
+        "prices": [9, 29], "scores": [19, 14, 10, 10, 6],
+        "decision": "暂缓；付费价值与维护成本需要进一步验证",
+        "source": "https://github.com/GoogleChromeLabs/squoosh",
+    },
+]
+
+
+def product(repo):
+    return next((dict(x) for x in CATALOG if x["repo"].lower() == repo.lower()), {
+        "repo": repo, "rank": 99, "name": repo.split("/")[-1],
+        "title": repo.split("/")[-1] + " 开源工具使用服务（待选品）",
+        "offer": "待定义原创交付内容", "audience": "待验证", "features": [],
+        "limits": ["未经选品与功能验证"], "prices": [], "scores": [0] * 5,
+        "decision": "新发现候选，需要人工定义商品", "source": "https://github.com/" + repo,
+    })

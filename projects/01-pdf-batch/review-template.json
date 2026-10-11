@@ -1,0 +1,33 @@
+{
+  "repo": "pdfcpu/pdfcpu",
+  "sha": "2f7a89a0a69c117a5252601907ff9f31ac4c70f2",
+  "fingerprint": "325a52ac271f879181d25a8ed7a31cc6bd7824e79d2cac221aa450c556246994",
+  "bundle_digest": "47961549dd59db7218c8f76d020593d4c5bc1194b1df40f38234d9dca928c52c",
+  "delivery_mode": "original_materials_only",
+  "reviewer": "",
+  "approved_at": "",
+  "checks": {
+    "main_license": false,
+    "dependencies_and_assets": false,
+    "delivery_scope": false,
+    "functional_tests": false,
+    "target_platform": false,
+    "marketplace_category": false,
+    "honest_listing": false,
+    "support_scope": false,
+    "ai_content": false
+  },
+  "evidence": {
+    "main_license": "",
+    "dependencies_and_assets": "",
+    "delivery_scope": "",
+    "functional_tests": "",
+    "target_platform": "",
+    "marketplace_category": "",
+    "honest_listing": "",
+    "support_scope": "",
+    "ai_content": ""
+  },
+  "approved": false,
+  "note": "逐项记录实际证据后再批准；原创材料交付模式也需审核引用及平台类目，不可一键全勾。"
+}

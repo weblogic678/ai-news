@@ -1,0 +1,33 @@
+{
+  "repo": "localsend/localsend",
+  "sha": "af0416be50770a97760f7070684bc667b759a15c",
+  "version": "v1.18.2",
+  "fingerprint": "5426dbee601178edb944e1fce4033c3abf563c86766e7554e1e341971b9581f0",
+  "declared": "Apache-2.0",
+  "detected": [
+    "Apache-2.0"
+  ],
+  "status": "preliminary_only",
+  "issues": [],
+  "obligations": "保留许可、版权及适用NOTICE；修改文件按要求标记；另外审核依赖和素材。",
+  "dependency_indicators": [
+    "Cargo.lock",
+    "LICENSE",
+    "app/lib/widget/dialogs/encryption_disabled_notice.dart",
+    "app/lib/widget/dialogs/quick_save_from_favorites_notice.dart",
+    "app/lib/widget/dialogs/quick_save_notice.dart",
+    "app/pubspec.yaml",
+    "packages/localsend_isolates/pubspec.yaml",
+    "packages/localsend_isolates/rust_builder/cargokit/LICENSE",
+    "packages/localsend_isolates/rust_builder/cargokit/build_tool/pubspec.lock",
+    "packages/localsend_isolates/rust_builder/cargokit/build_tool/pubspec.yaml",
+    "packages/localsend_isolates/rust_builder/pubspec.yaml",
+    "packages/typed_isolates/LICENSE",
+    "packages/typed_isolates/pubspec.yaml",
+    "pubspec.lock",
+    "pubspec.yaml"
+  ],
+  "dependency_audit_complete": false,
+  "commercial_approval": false,
+  "note": "自动识别仅为初筛；宽松主许可证不代表全部文件或计划商品已获授权。"
+}
