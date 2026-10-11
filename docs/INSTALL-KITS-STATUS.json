@@ -49,6 +49,7 @@
     "checks": "unfinished eligible work, not account quota resets"
   },
   "workflow_materials_checked": 8,
-  "demo_import_guard_tests_passed": 6,
-  "workflow_import_helpers": "prepared; simulated-service tests only; real import pending"
+  "demo_import_guard_tests_passed": 8,
+  "workflow_import_helpers": "prepared; simulated-service tests only; real import pending",
+  "local_verification_guard_tests_passed": 4
 }

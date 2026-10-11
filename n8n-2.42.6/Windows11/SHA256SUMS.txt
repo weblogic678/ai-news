@@ -1,1 +1,1 @@
-8ef9241dffc6eebc6dc3e5675c914ead4c7e8b3b023e10fbd2abf75135b9ae58  n8n-2.42.6-Windows11.zip
+9b7b2565e4f96bd7863c0f340e7f10f254fb7d4e5b5dcbc3ce2b665af188cfde  n8n-2.42.6-Windows11.zip
