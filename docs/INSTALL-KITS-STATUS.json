@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-11",
+  "stage": "prepared-awaiting-runtime-validation",
+  "quota_status": "unavailable",
+  "projects": [
+    {
+      "tool": "dify",
+      "version": "1.17.1",
+      "runtime_tested": false,
+      "listing_allowed": false
+    },
+    {
+      "tool": "n8n",
+      "version": "2.42.6",
+      "runtime_tested": false,
+      "listing_allowed": false
+    },
+    {
+      "tool": "flowise",
+      "version": "3.1.4",
+      "runtime_tested": false,
+      "listing_allowed": false
+    },
+    {
+      "tool": "anythingllm",
+      "version": "1.17.0",
+      "runtime_tested": false,
+      "listing_allowed": false
+    }
+  ],
+  "blockers": [
+    "No Docker daemon in build environment",
+    "No Windows 11 host",
+    "No customer Dify/n8n URL or credentials",
+    "No DeepSeek API key; paid call not executed"
+  ],
+  "code_and_packages_complete": true,
+  "core_tests_passed": 21,
+  "install_guard_tests_passed": 8,
+  "compose_payloads_checked": 8,
+  "preview_images_captured": 8,
+  "resume_policy": "Hourly conditional retry can resume eligible unfinished code; quota reset time cannot be read. Do not retry environmental blockers blindly.",
+  "lease_expires_at": "2026-10-11T07:59:45.617479+00:00",
+  "upload_complete": false,
+  "active_worker": "current-delivery-turn",
+  "scheduled_resume": {
+    "enabled": true,
+    "cadence": "hourly",
+    "checks": "unfinished eligible work, not account quota resets"
+  }
+}
