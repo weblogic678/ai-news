@@ -1,0 +1,97 @@
+{
+  "name": "DeepSeek：三条摘要（需绑定凭据）",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual",
+      "name": "手动启动",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        100,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "text",
+              "name": "text",
+              "value": "今天完成一键安装包，接下来配置 DeepSeek。",
+              "type": "string"
+            },
+            {
+              "id": "prompt",
+              "name": "prompt",
+              "value": "请将输入文本整理成三条中文要点。",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "input",
+      "name": "示例输入",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        340,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({model: \"deepseek-flash\", messages: [{role: \"system\", content: $json.prompt}, {role: \"user\", content: $json.text}], stream: false}) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "deepseek",
+      "name": "DeepSeek 请求",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        200
+      ]
+    }
+  ],
+  "connections": {
+    "手动启动": {
+      "main": [
+        [
+          {
+            "node": "示例输入",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "示例输入": {
+      "main": [
+        [
+          {
+            "node": "DeepSeek 请求",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": []
+}

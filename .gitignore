@@ -6,3 +6,10 @@ __pycache__/
 automation/work/
 automation/runs/
 *.log
+runtime/
+.preparing/
+backup-*/
+backup-*.tar.gz
+images-*.tar
+images-*.tar.sha256
+backup-*.partial

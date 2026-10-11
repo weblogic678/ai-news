@@ -41,3 +41,15 @@ py daily.py
 - [测试报告](docs/QA.md)：19项回归、PDF实际处理、3配方、3模板、工作台尺寸检查。
 - [上架规则核对](docs/MARKETPLACE-REVIEW.md)：公开协议核对日期2026-10-11；账号具体类目权限仍待卖家确认。
 - 每份许可证保留上游声明；没有根许可证代表整个仓库重新授权。原创内容与上游证据分别记录，不把上游软件冒充原创。
+
+
+
+
+## AI 一键安装辅助包
+
+- [Dify 工作流安装配置 1.17.1](dify-1.17.1/README.md)：双平台脚本、压缩包和 DeepSeek 教程；实际部署待验收。
+- [n8n 自动化安装配置 2.42.6](n8n-2.42.6/README.md)：双平台脚本、压缩包和 DeepSeek 教程；实际部署待验收。
+- [Flowise AI 流程安装配置 3.1.4](flowise-3.1.4/README.md)：双平台脚本、压缩包和 DeepSeek 教程；实际部署待验收。
+- [AnythingLLM 知识库安装配置 1.17.0](anythingllm-1.17.0/README.md)：双平台脚本、压缩包和 DeepSeek 教程；实际部署待验收。
+
+详见 [选品说明](docs/AI-选品说明.md) 和 [验收状态](docs/INSTALL-KITS-STATUS.json)。

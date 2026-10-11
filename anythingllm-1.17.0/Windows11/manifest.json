@@ -1,0 +1,13 @@
+{
+  "tool": "anythingllm",
+  "version": "1.17.0",
+  "project": "ai-news-anythingllm-1-17-0",
+  "url": "http://localhost:3001",
+  "arch": "amd64",
+  "data_path": "/app/server/storage",
+  "image": "mintplexlabs/anythingllm:1.17.0",
+  "checked_at": "2026-10-11",
+  "image_digests": {
+    "mintplexlabs/anythingllm:1.17.0": "sha256:f26f30df46916b6e953e3a47ca98f48817726e3df635e62d4bfdd133292ecfff"
+  }
+}

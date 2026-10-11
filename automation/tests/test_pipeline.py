@@ -39,6 +39,17 @@ class PipelineTests(unittest.TestCase):
         self.snapshot["metadata"]["license"]["spdx_id"] = "MIT"
         self.assertEqual(audit(self.snapshot)["status"], "blocked")
 
+    def test_custom_conditions_override_embedded_permissive_license(self):
+        main = next(f for f in self.snapshot['license_files'] if f['path'].lower().startswith('license'))
+        main['text'] = 'Licensed under a modified version with additional conditions. Multi-tenant service requires a commercial license.\n' + main['text']
+        result = audit(self.snapshot)
+        self.assertEqual(result['status'], 'blocked')
+        self.assertEqual(result['detected'], ['CUSTOM-OR-MIXED'])
+
+    def test_nested_commercial_license_blocks(self):
+        self.snapshot['license_files'].append({'path':'packages/enterprise/LICENSE.md','text':'Commercial License: a separate paid agreement is required.'})
+        self.assertEqual(audit(self.snapshot)['status'],'blocked')
+
     def test_partial_inventory_blocks(self):
         self.snapshot["tree_truncated"] = True
         self.assertEqual(audit(self.snapshot)["status"], "blocked")

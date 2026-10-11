@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/langgenius/dify",
+  "release_url": "https://github.com/langgenius/dify/releases/tag/1.17.1",
+  "tag": "1.17.1",
+  "published_at": "2026-09-10T10:04:06Z",
+  "prerelease": false,
+  "checked_at": "2026-10-11",
+  "license_review": "LICENSE-REVIEW.md",
+  "runtime_deployed": false,
+  "commit": "8387590ace4a094de812b7847fc6a4c3a27cd52b",
+  "source_archive_sha256": "ea72002d7ba1baed3a01a0c2cdb8e398483bb4e1d06f225624e4ec2a53bebb02"
+}

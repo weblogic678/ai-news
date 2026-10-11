@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/Mintplex-Labs/anything-llm",
+  "release_url": "https://github.com/Mintplex-Labs/anything-llm/releases/tag/v1.17.0",
+  "tag": "v1.17.0",
+  "published_at": "2026-10-01T22:17:40Z",
+  "prerelease": false,
+  "checked_at": "2026-10-11",
+  "license_review": "LICENSE-REVIEW.md",
+  "runtime_deployed": false
+}

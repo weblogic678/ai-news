@@ -40,12 +40,13 @@
   "compose_payloads_checked": 8,
   "preview_images_captured": 8,
   "resume_policy": "Hourly conditional retry can resume eligible unfinished code; quota reset time cannot be read. Do not retry environmental blockers blindly.",
-  "lease_expires_at": "2026-10-11T07:59:45.617479+00:00",
-  "upload_complete": false,
-  "active_worker": "current-delivery-turn",
+  "lease_expires_at": null,
+  "upload_complete": true,
+  "active_worker": null,
   "scheduled_resume": {
     "enabled": true,
     "cadence": "hourly",
     "checks": "unfinished eligible work, not account quota resets"
-  }
+  },
+  "workflow_materials_checked": 8
 }

@@ -19,6 +19,9 @@ def fingerprint(value):
 
 def detect_license(text):
     # Presence of a name in a README is insufficient. Only inspect captured license text.
+    # Look for overrides before the embedded permissive license boilerplate.
+    if re.search(r'(?i)(modified version|additional conditions|multi.tenant|sustainable use license|commercial license|commercial agreement|enterprise directory|branding restriction|logo.*(?:remove|modify)|(?:remove|modify).*logo)', text):
+        return 'CUSTOM-OR-MIXED'
     if "Apache License" in text and "Version 2.0" in text and "Redistribution" in text:
         return "Apache-2.0"
     if "Permission is hereby granted, free of charge" in text and "THE SOFTWARE IS PROVIDED" in text:
@@ -53,6 +56,9 @@ def audit(snapshot):
     detected_one = detected[0] if len(detected) == 1 else "UNKNOWN"
     if detected_one not in KNOWN:
         issues.append("非首期宽松许可白名单，须逐项评估许可义务")
+    nested_licenses = [f for f in evidence if f not in main and re.search(r'(?i)(license|licence|copying)', f['path'])]
+    if any(detect_license(f['text']) not in KNOWN for f in nested_licenses):
+        issues.append('取得的子目录许可包含非白名单或未识别条款，需要人工审核')
     indicators = [p for p in snapshot.get("tree", []) if re.search(r"(?i)(license|notice|third.party|package.*json$|go\.(mod|sum)$|pubspec|cargo.lock|requirements|fonts?/|vendor/)", p)]
     return {"repo": snapshot["repo"], "sha": snapshot["sha"], "version": snapshot["version"],
             "fingerprint": fingerprint(snapshot), "declared": declared, "detected": detected,

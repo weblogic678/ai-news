@@ -1,0 +1,46 @@
+[
+  {
+    "project": "dify-1.17.1",
+    "viewport": [
+      1080,
+      1080
+    ],
+    "download_links": 7,
+    "all_links_valid": true,
+    "errors": [],
+    "screenshot_kind": "Actual custom delivery-file overview, not upstream app runtime"
+  },
+  {
+    "project": "n8n-2.42.6",
+    "viewport": [
+      1080,
+      1080
+    ],
+    "download_links": 7,
+    "all_links_valid": true,
+    "errors": [],
+    "screenshot_kind": "Actual custom delivery-file overview, not upstream app runtime"
+  },
+  {
+    "project": "flowise-3.1.4",
+    "viewport": [
+      1080,
+      1080
+    ],
+    "download_links": 7,
+    "all_links_valid": true,
+    "errors": [],
+    "screenshot_kind": "Actual custom delivery-file overview, not upstream app runtime"
+  },
+  {
+    "project": "anythingllm-1.17.0",
+    "viewport": [
+      1080,
+      1080
+    ],
+    "download_links": 7,
+    "all_links_valid": true,
+    "errors": [],
+    "screenshot_kind": "Actual custom delivery-file overview, not upstream app runtime"
+  }
+]
