@@ -17,3 +17,7 @@
 证据：install-kit-config-qa.json、install-kit-preview-qa.json、CONTAINER-IMAGE-LOCK.json、workflow-material-qa.json、各平台 SHA256SUMS.txt、SOURCE.json、许可证正文。可执行 `python3 -m unittest discover -s tests -v` 和 `python3 -m unittest discover -s automation/tests -v`；包更新后用 tools/repackage-install-kits.py 重建。
 
 后续若要更多浏览器交互验证，可连接 Browser 插件。无需为了本轮内容截图建立账号或共享登录凭据。
+
+## 工作流导入辅助更新
+
+新增 Dify/n8n 两平台 `import-demo.py` 与启动入口。模拟服务的 6 项失败/重复导入测试通过：仅回环地址、Dify 超时后拒绝重复创建、完成记录只读取、并发锁、n8n 验证失败仍恢复服务并保留不确定记录、超时仅清理本次随机 helper。合计安装及导入保护测试 14 项。此项不等于真实产品导入验收，也未执行付费模型。

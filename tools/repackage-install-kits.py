@@ -1,6 +1,6 @@
 """Rebuild delivery archives from repository files; excludes runtime data and secrets."""
 from pathlib import Path
-import hashlib,tarfile,zipfile
+import hashlib,tarfile,zipfile,sys
 
 ROOT=Path(__file__).resolve().parents[1]
 def payload(folder):
@@ -11,7 +11,7 @@ def payload(folder):
             if f.name in ('.env','app.env') or f.suffix=='.pyc':raise ValueError('Secret/cache file in payload: '+str(rel))
             yield f,rel
 
-for pattern in ('dify-*','n8n-*','flowise-*','anythingllm-*'):
+for pattern in (sys.argv[1:] or ('dify-*','n8n-*','flowise-*','anythingllm-*')):
     for project in ROOT.glob(pattern):
         for platform in ('Windows11','linux-x86'):
             folder=project/platform
