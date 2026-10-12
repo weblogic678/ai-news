@@ -1,2 +1,2 @@
-2ef79c1bd23893c9ec0a255378d991729162c265664b8ddf29f2caa9e382e167  anythingllm-1.17.0-linux-x86.tar.gz
-50f5490cd657e96b33ec21c798e9d48ebb65ee38d65a51d84abcede9ed13f010  anythingllm-1.17.0-linux-x86.zip
+893d0ce3dd06bf180166bda1770a8d0375d2fff0f712a8eb27f68a50f1cf1dff  anythingllm-1.17.0-linux-x86.tar.gz
+e5c0917dc55dc5d25a27e7298ecc779598e0e3dbaa83e50d34f145e922096824  anythingllm-1.17.0-linux-x86.zip

@@ -1,0 +1,2 @@
+47586151908b8996027b16d09f7a1a0a1727c2166ad8b6bfb1d6a72d789df336  02-cyberchef-recipes-linux-x86.zip
+ea9180628ebdffe5dd03a6019b3f4a21f5841e9ad935e7b78077c7053fc28f66  02-cyberchef-recipes-linux-x86.tar.gz

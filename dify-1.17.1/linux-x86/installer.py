@@ -6,7 +6,20 @@ BASE = Path(__file__).resolve().parent
 if sys.version_info < (3,10):
     raise SystemExit('Python 3.10+ required')
 META = json.loads((BASE / 'manifest.json').read_text(encoding='utf-8'))
-RUNTIME = BASE / 'runtime'
+def local_runtime(base, meta):
+    for root in (base, *base.parents):
+        mapping = root / 'temp/private/runtime-paths.json'
+        if (root / '.git').is_dir() and mapping.is_file():
+            paths = json.loads(mapping.read_text(encoding='utf-8'))
+            relative = paths.get(meta['project'] + ':' + base.name)
+            if relative:
+                target = (root / relative).resolve()
+                if not target.is_relative_to((root / 'temp/private').resolve()):
+                    raise RuntimeError('Local runtime mapping must stay inside temp/private.')
+                return target
+    return base / 'runtime'
+
+RUNTIME = local_runtime(BASE, META)
 MARKER = RUNTIME / '.kit.json'
 
 def run(args, **kwargs):
@@ -33,7 +46,8 @@ def prepare():
         return
     if platform.machine().lower() not in ('x86_64', 'amd64'):
         raise RuntimeError('This kit supports x86_64/AMD64, not 32-bit x86 or ARM.')
-    staging = BASE / '.preparing'
+    RUNTIME.parent.mkdir(parents=True, exist_ok=True)
+    staging = BASE / '.preparing' if RUNTIME == BASE / 'runtime' else RUNTIME.with_name(RUNTIME.name + '.preparing')
     if staging.exists():
         raise RuntimeError('Incomplete .preparing exists. Inspect it before retrying.')
     staging.mkdir(mode=0o700)
@@ -56,7 +70,7 @@ def prepare():
                 config = re.sub(r'(?m)^(\s*image: )' + re.escape(image) + r'$', lambda match: match[1] + image + '@' + digest, config)
             (staging / 'docker-compose.yaml').write_text(config, encoding='utf-8')
             redis = secrets.token_hex(24)
-            vals = {k: secrets.token_hex(32) for k in ('SECRET_KEY', 'DB_PASSWORD', 'PLUGIN_DAEMON_KEY', 'PLUGIN_DIFY_INNER_API_KEY', 'SANDBOX_API_KEY', 'DIFY_AGENT_SERVER_SECRET_KEY', 'QDRANT_API_KEY')}
+            vals = {k: secrets.token_hex(32) for k in ('SECRET_KEY', 'DB_PASSWORD', 'PLUGIN_DAEMON_KEY', 'PLUGIN_DIFY_INNER_API_KEY', 'SANDBOX_API_KEY', 'DIFY_AGENT_SERVER_SECRET_KEY', 'DIFY_AGENT_API_TOKEN', 'QDRANT_API_KEY')}
             vals.update(REDIS_PASSWORD=redis, CELERY_BROKER_URL=f'redis://:{redis}@redis:6379/1', CODE_EXECUTION_API_KEY=vals['SANDBOX_API_KEY'], PLUGIN_API_KEY=vals['PLUGIN_DAEMON_KEY'], EXPOSE_NGINX_PORT='8080', EXPOSE_NGINX_SSL_PORT='8443', CONSOLE_WEB_URL='http://localhost:8080', APP_WEB_URL='http://localhost:8080', CONSOLE_API_URL='http://localhost:8080', SERVICE_API_URL='http://localhost:8080', APP_API_URL='http://localhost:8080', TRIGGER_URL='http://localhost:8080', NEXT_PUBLIC_SOCKET_URL='ws://localhost:8080', VECTOR_STORE='qdrant', QDRANT_URL='http://qdrant:6333', COMPOSE_PROFILES='qdrant,postgresql,collaboration')
             # Shared env_file contains its own CODE_EXECUTION_API_KEY default. Override in final .env.
             text = env_update((staging / '.env.example').read_text(encoding='utf-8'), vals)
@@ -114,7 +128,7 @@ def main():
     elif a.action == 'backup':
         # Stop first: filesystem backup of running PostgreSQL/SQLite is not consistent.
         compose('stop')
-        dest = BASE / ('backup-' + time.strftime('%Y%m%d-%H%M%S'))
+        dest = (BASE if RUNTIME == BASE / 'runtime' else RUNTIME.parent) / ('backup-' + META['tool'] + '-' + time.strftime('%Y%m%d-%H%M%S'))
         if dest.exists() or Path(str(dest)+'.tar.gz').exists():
             raise RuntimeError('Backup target already exists. Service remains stopped; retry later.')
         if META['tool'] == 'dify':
@@ -144,7 +158,7 @@ def main():
         print('Stopped backup saved:', dest, '\nContains credentials. Store privately. Run start when ready.')
     elif a.action == 'export-images':
         images = sorted(set(compose('config','--images',capture=True).stdout.splitlines()))
-        target = BASE / ('images-' + META['tool'] + '-' + META['version'] + '.tar')
+        target = (BASE if RUNTIME == BASE / 'runtime' else RUNTIME.parent) / ('images-' + META['tool'] + '-' + META['version'] + '.tar')
         if target.exists(): raise RuntimeError('Image archive already exists; choose another folder.')
         run(['docker','image','save','-o',str(target),*images])
         (Path(str(target)+'.sha256')).write_text(digest_file(target)+'  '+target.name+'\n')

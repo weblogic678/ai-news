@@ -1,0 +1,8 @@
+{
+  "archives_audited": 23,
+  "members_audited": 464,
+  "staged_public_paths_checked": 384,
+  "checksums_passed": true,
+  "private_values_absent": true,
+  "unsafe_paths_absent": true
+}

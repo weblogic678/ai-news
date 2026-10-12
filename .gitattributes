@@ -1,0 +1,6 @@
+*.pdf -text
+*.png -text
+*.zip -text
+*.gz -text
+*.sh text eol=lf
+*.cmd text eol=crlf

@@ -14,3 +14,7 @@ images-*.tar
 images-*.tar.sha256
 backup-*.partial
 .local/
+
+temp/private/
+temp/automation/runs/
+temp/automation/work/

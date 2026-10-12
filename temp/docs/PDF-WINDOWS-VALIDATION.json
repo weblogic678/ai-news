@@ -1,0 +1,11 @@
+{
+  "host": "Windows 11 x64",
+  "pdfcpu_version": "0.16.1",
+  "merge_pages_and_order": true,
+  "split_pages": true,
+  "optimize_pages": true,
+  "input_hashes_preserved": true,
+  "refuse_overwrite": true,
+  "one_click_demo_passed": true,
+  "model_called": false
+}

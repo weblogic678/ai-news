@@ -6,7 +6,20 @@ BASE = Path(__file__).resolve().parent
 if sys.version_info < (3,10):
     raise SystemExit('Python 3.10+ required')
 META = json.loads((BASE / 'manifest.json').read_text(encoding='utf-8'))
-RUNTIME = BASE / 'runtime'
+def local_runtime(base, meta):
+    for root in (base, *base.parents):
+        mapping = root / 'temp/private/runtime-paths.json'
+        if (root / '.git').is_dir() and mapping.is_file():
+            paths = json.loads(mapping.read_text(encoding='utf-8'))
+            relative = paths.get(meta['project'] + ':' + base.name)
+            if relative:
+                target = (root / relative).resolve()
+                if not target.is_relative_to((root / 'temp/private').resolve()):
+                    raise RuntimeError('Local runtime mapping must stay inside temp/private.')
+                return target
+    return base / 'runtime'
+
+RUNTIME = local_runtime(BASE, META)
 MARKER = RUNTIME / '.kit.json'
 
 def run(args, **kwargs):
@@ -33,7 +46,8 @@ def prepare():
         return
     if platform.machine().lower() not in ('x86_64', 'amd64'):
         raise RuntimeError('This kit supports x86_64/AMD64, not 32-bit x86 or ARM.')
-    staging = BASE / '.preparing'
+    RUNTIME.parent.mkdir(parents=True, exist_ok=True)
+    staging = BASE / '.preparing' if RUNTIME == BASE / 'runtime' else RUNTIME.with_name(RUNTIME.name + '.preparing')
     if staging.exists():
         raise RuntimeError('Incomplete .preparing exists. Inspect it before retrying.')
     staging.mkdir(mode=0o700)
@@ -114,7 +128,7 @@ def main():
     elif a.action == 'backup':
         # Stop first: filesystem backup of running PostgreSQL/SQLite is not consistent.
         compose('stop')
-        dest = BASE / ('backup-' + time.strftime('%Y%m%d-%H%M%S'))
+        dest = (BASE if RUNTIME == BASE / 'runtime' else RUNTIME.parent) / ('backup-' + META['tool'] + '-' + time.strftime('%Y%m%d-%H%M%S'))
         if dest.exists() or Path(str(dest)+'.tar.gz').exists():
             raise RuntimeError('Backup target already exists. Service remains stopped; retry later.')
         if META['tool'] == 'dify':
@@ -144,7 +158,7 @@ def main():
         print('Stopped backup saved:', dest, '\nContains credentials. Store privately. Run start when ready.')
     elif a.action == 'export-images':
         images = sorted(set(compose('config','--images',capture=True).stdout.splitlines()))
-        target = BASE / ('images-' + META['tool'] + '-' + META['version'] + '.tar')
+        target = (BASE if RUNTIME == BASE / 'runtime' else RUNTIME.parent) / ('images-' + META['tool'] + '-' + META['version'] + '.tar')
         if target.exists(): raise RuntimeError('Image archive already exists; choose another folder.')
         run(['docker','image','save','-o',str(target),*images])
         (Path(str(target)+'.sha256')).write_text(digest_file(target)+'  '+target.name+'\n')

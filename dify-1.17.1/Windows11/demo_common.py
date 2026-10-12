@@ -6,10 +6,23 @@ from contextlib import contextmanager
 def read_json(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
+def local_runtime(base, meta):
+    for root in (base, *base.parents):
+        mapping = root / 'temp/private/runtime-paths.json'
+        if (root / '.git').is_dir() and mapping.is_file():
+            paths = json.loads(mapping.read_text(encoding='utf-8'))
+            relative = paths.get(meta['project'] + ':' + base.name)
+            if relative:
+                target = (root / relative).resolve()
+                if not target.is_relative_to((root / 'temp/private').resolve()):
+                    raise RuntimeError('Local runtime mapping must stay inside temp/private.')
+                return target
+    return base / 'runtime'
+
 def check_kit(base, tool):
     meta=read_json(base/'manifest.json')
     if meta['tool']!=tool:raise RuntimeError('Wrong kit')
-    runtime=base/'runtime'
+    runtime=local_runtime(base,meta)
     if not (runtime/'.kit.json').is_file() or read_json(runtime/'.kit.json')!=meta:
         raise RuntimeError('Install this kit first. Existing runtime must match its manifest.')
     return meta,runtime

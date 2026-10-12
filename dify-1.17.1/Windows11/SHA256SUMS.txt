@@ -1,2 +1,2 @@
-58a3dc9534cbfed5109d84b47abf7be2d8ad5a424c1f423a778383a067d50f9a  dify-1.17.1-Windows11.zip
+8e33dfdfd84f1f0fa3344d18e42a425ee63036f69ae8c26959786176a924cdb1  dify-1.17.1-Windows11.zip
 818ceaaace924dc493f930a7db256a84dd323a2ee1b4e26ff070d9cee30c007a  upstream-docker.zip
