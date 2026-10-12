@@ -26,7 +26,7 @@ Windows 11 专业版 x64 10.0.28000；Python 3.14；Docker Desktop 4.93.0、Engi
 
 ## 文件布局与隐私
 
-- 根目录 images/：闲鱼发布主图及真实结果截图；文字主图明确区分已测与待验收。
+- 根目录 images/：每款仅一张闲鱼发布封面；仅显示软件名、版本、一键安装及小写系统名。验收范围与待完成项保留在本报告和发布描述.md；旧图及运行截图移入 temp/listing-history/20261012-simple-covers/。
 - 根目录 发布描述.md：七个项目的集中发布文案。
 - 各交付项目 Windows11/、linux-x86/：一键入口、说明、ZIP；Linux 另有 TAR.GZ 与校验值。
 - temp/：维护脚本、测试、公开报告、来源许可、历史材料。
@@ -38,9 +38,9 @@ Windows 11 专业版 x64 10.0.28000；Python 3.14；Docker Desktop 4.93.0、Engi
 
 以下来自实际本机 n8n 浏览器工作流运行，截图避开账户和凭据。
 
-![真实工作流](../../images/n8n-2.42.6/03-real-workflow.png)
+![真实工作流](../listing-history/20261012-simple-covers/n8n-2.42.6/03-real-workflow.png)
 
-![真实输出](../../images/n8n-2.42.6/04-real-output.png)
+![真实输出](../listing-history/20261012-simple-covers/n8n-2.42.6/04-real-output.png)
 
 PDF 已从官方发行页下载 Windows v0.16.1 并校验 checksum，补测合并页数与顺序、拆分、优化、输入校验值不变、拒绝覆盖及一键示例，全部通过。结果见 PDF-WINDOWS-VALIDATION.json；下载程序与输出留 temp/private，不随包分发。CyberChef / Excalidraw 的既有验证细节保留在 temp/projects/，本轮未重测。
 

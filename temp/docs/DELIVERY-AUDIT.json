@@ -1,7 +1,7 @@
 {
   "archives_audited": 23,
   "members_audited": 464,
-  "staged_public_paths_checked": 2,
+  "staged_public_paths_checked": 40,
   "checksums_passed": true,
   "private_values_absent": true,
   "unsafe_paths_absent": true
