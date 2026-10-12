@@ -9,7 +9,7 @@ from demo_common import check_kit,checkpoint,digest,existing,save
 BASE=Path(__file__).resolve().parent
 
 def compose(meta,runtime,args,stdin=None):
-    return subprocess.run(['docker','compose','--project-name',meta['project'],*args],cwd=runtime,input=stdin,capture_output=True,text=True,check=True,timeout=180).stdout
+    return subprocess.run(['docker','compose','--project-name',meta['project'],*args],cwd=runtime,input=stdin,capture_output=True,text=True, encoding="utf-8",check=True,timeout=180).stdout
 
 def job(meta,runtime,entrypoint,args,stdin=None):
     helper='ai-news-demo-helper-'+secrets.token_hex(16)
@@ -33,7 +33,7 @@ def import_files(meta,runtime,paths,state,state_path,user_id=None):
     for file in paths:
         sha=digest(file);old=existing(state,file.name,sha)
         if old:continue
-        data=json.loads(file.read_text());data['id']=secrets.token_urlsafe(12);data['active']=False
+        data=json.loads(file.read_text(encoding='utf-8'));data['id']=secrets.token_urlsafe(12);data['active']=False
         if any(n.get('credentials') for n in data['nodes']):raise RuntimeError('Bundle unexpectedly contains credentials.')
         pending.append((file,sha,data))
     running=compose(meta,runtime,['ps','--status','running','--services']).splitlines()
@@ -53,7 +53,7 @@ def import_files(meta,runtime,paths,state,state_path,user_id=None):
         for index,file in enumerate(paths):
             item=state['workflows'][file.name]
             result=exported(meta,runtime,item['workflow_id'],job_path+'/verify-'+str(index)+'.json')
-            expected=json.loads(file.read_text())
+            expected=json.loads(file.read_text(encoding='utf-8'))
             if result['name']!=expected['name'] or result['connections']!=expected['connections']:
                 raise RuntimeError('Imported workflow differs from expected demo. Inspect it manually.')
             item['state']='completed';save(state_path,state)

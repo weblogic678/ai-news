@@ -16,13 +16,13 @@ def inspect(meta,runtime,run=subprocess.run,opener=None):
     # Keep errors generic: Docker diagnostics can contain paths or deployment details.
     report={'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'tool':meta['tool'],'bundle_version':meta['version'],'platform':platform.system(),'scope':'Local Docker/HTTP reachability only; workflow execution, backup restoration, model calls and listing approval NOT verified','checks':{},'services':[],'runtime_reachability_passed':False,'listing_allowed':False}
     try:
-        r=run(['docker','info','--format','{{.ServerVersion}}'],capture_output=True,text=True,check=True,timeout=20)
+        r=run(['docker','info','--format','{{.ServerVersion}}'],capture_output=True,text=True, encoding="utf-8",check=True,timeout=20)
         report['checks']['docker_daemon']=True
     except (OSError,subprocess.SubprocessError):
         report['checks']['docker_daemon']=False;return report
     try:
-        expected=run(['docker','compose','--project-name',meta['project'],'config','--services'],cwd=runtime,capture_output=True,text=True,check=True,timeout=30).stdout.splitlines()
-        r=run(['docker','compose','--project-name',meta['project'],'ps','--all','--format','json'],cwd=runtime,capture_output=True,text=True,check=True,timeout=30)
+        expected=run(['docker','compose','--project-name',meta['project'],'config','--services'],cwd=runtime,capture_output=True,text=True, encoding="utf-8",check=True,timeout=30).stdout.splitlines()
+        r=run(['docker','compose','--project-name',meta['project'],'ps','--all','--format','json'],cwd=runtime,capture_output=True,text=True, encoding="utf-8",check=True,timeout=30)
         for item in rows(r.stdout):
             report['services'].append({key:item.get(key) for key in ('Service','State','Health','ExitCode','Image')})
         def ready(x):
@@ -43,7 +43,7 @@ def inspect(meta,runtime,run=subprocess.run,opener=None):
     return report
 
 def main():
-    meta=json.loads((BASE/'manifest.json').read_text());meta,runtime=check_kit(BASE,meta['tool'])
+    meta=json.loads((BASE/'manifest.json').read_text(encoding='utf-8'));meta,runtime=check_kit(BASE,meta['tool'])
     report=inspect(meta,runtime);dest=runtime/'local-verification.json';save(dest,report)
     print(json.dumps(report,ensure_ascii=False,indent=2));print('Report:',dest)
     return 0 if report['runtime_reachability_passed'] else 1

@@ -17,7 +17,7 @@ from g2x.ai import parse_draft, AIError
 
 class PipelineTests(unittest.TestCase):
     def setUp(self):
-        self.snapshot = json.loads((ROOT / "data/snapshots/pdfcpu__pdfcpu.json").read_text())
+        self.snapshot = json.loads((ROOT / "data/snapshots/pdfcpu__pdfcpu.json").read_text(encoding='utf-8'))
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
 
@@ -67,7 +67,7 @@ class PipelineTests(unittest.TestCase):
         with zipfile.ZipFile(dest) as archive:
             self.assertIn("DRAFT-NOT-FOR-SALE.txt", archive.namelist())
             self.assertEqual(json.loads(archive.read("EXPORT-MANIFEST.json"))["status"], "DRAFT_NOT_FOR_SALE")
-        invalid = json.loads((folder / "review-template.json").read_text())
+        invalid = json.loads((folder / "review-template.json").read_text(encoding='utf-8'))
         with self.assertRaisesRegex(ValueError, "未完成审核"):
             export(self.snapshot, folder, self.root / "bad.zip", invalid)
         self.assertFalse((self.root / "bad.zip").exists())
@@ -93,7 +93,12 @@ class PipelineTests(unittest.TestCase):
 
     def test_symlink_bundle_rejected(self):
         folder = generate(self.snapshot, self.root / "product", ROOT)
-        (folder / "leak").symlink_to(ROOT / "run.py")
+        try:
+            (folder / "leak").symlink_to(ROOT / "run.py")
+        except OSError as error:
+            if getattr(error, "winerror", None) == 1314:
+                self.skipTest("Windows account lacks symbolic-link privilege")
+            raise
         with self.assertRaisesRegex(ValueError, "符号链接"):
             bundle_digest(folder)
 
@@ -102,7 +107,7 @@ class PipelineTests(unittest.TestCase):
         (folder / "listing.md").write_text("user edit")
         with self.assertRaises(ValueError):
             generate(self.snapshot, folder, ROOT)
-        self.assertEqual((folder / "listing.md").read_text(), "user edit")
+        self.assertEqual((folder / "listing.md").read_text(encoding='utf-8'), "user edit")
 
     def test_path_traversal_rejected(self):
         for value in ("../thing", "owner/../repo", "https://github.com/x/y", "x/y?ref=a", "x\\y/z"):
@@ -118,7 +123,7 @@ class PipelineTests(unittest.TestCase):
         self.snapshot["version"] = '<script>alert(1)</script>'
         dest = self.root / "report.html"
         report([self.snapshot], dest)
-        text = dest.read_text()
+        text = dest.read_text(encoding='utf-8')
         self.assertNotIn('<script>alert(1)</script>', text)
         self.assertIn('&lt;script&gt;', text)
 

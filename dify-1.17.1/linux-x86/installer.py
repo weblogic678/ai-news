@@ -28,7 +28,7 @@ def env_update(text, values):
 
 def prepare():
     if RUNTIME.exists():
-        if not MARKER.exists() or json.loads(MARKER.read_text()) != META:
+        if not MARKER.exists() or json.loads(MARKER.read_text(encoding='utf-8')) != META:
             raise RuntimeError('Existing runtime is not this kit/version. Back it up and choose a new folder.')
         return
     if platform.machine().lower() not in ('x86_64', 'amd64'):
@@ -48,7 +48,7 @@ def prepare():
                     if not dest.is_relative_to(staging.resolve()) or info.filename.startswith('/'):
                         raise RuntimeError('Unsafe archive path')
                 z.extractall(staging)
-            config = (staging / 'docker-compose.yaml').read_text()
+            config = (staging / 'docker-compose.yaml').read_text(encoding='utf-8')
             # Compose appends an optional host IP to the official published port interpolation.
             for key in ('EXPOSE_NGINX_PORT', 'EXPOSE_NGINX_SSL_PORT', 'EXPOSE_PLUGIN_DEBUGGING_PORT'):
                 config = config.replace('"${' + key, '"127.0.0.1:${' + key)
@@ -59,7 +59,7 @@ def prepare():
             vals = {k: secrets.token_hex(32) for k in ('SECRET_KEY', 'DB_PASSWORD', 'PLUGIN_DAEMON_KEY', 'PLUGIN_DIFY_INNER_API_KEY', 'SANDBOX_API_KEY', 'DIFY_AGENT_SERVER_SECRET_KEY', 'QDRANT_API_KEY')}
             vals.update(REDIS_PASSWORD=redis, CELERY_BROKER_URL=f'redis://:{redis}@redis:6379/1', CODE_EXECUTION_API_KEY=vals['SANDBOX_API_KEY'], PLUGIN_API_KEY=vals['PLUGIN_DAEMON_KEY'], EXPOSE_NGINX_PORT='8080', EXPOSE_NGINX_SSL_PORT='8443', CONSOLE_WEB_URL='http://localhost:8080', APP_WEB_URL='http://localhost:8080', CONSOLE_API_URL='http://localhost:8080', SERVICE_API_URL='http://localhost:8080', APP_API_URL='http://localhost:8080', TRIGGER_URL='http://localhost:8080', NEXT_PUBLIC_SOCKET_URL='ws://localhost:8080', VECTOR_STORE='qdrant', QDRANT_URL='http://qdrant:6333', COMPOSE_PROFILES='qdrant,postgresql,collaboration')
             # Shared env_file contains its own CODE_EXECUTION_API_KEY default. Override in final .env.
-            text = env_update((staging / '.env.example').read_text(), vals)
+            text = env_update((staging / '.env.example').read_text(encoding='utf-8'), vals)
         else:
             shutil.copy2(BASE / 'compose.yaml', staging / 'compose.yaml')
             text = 'N8N_ENCRYPTION_KEY=' + secrets.token_hex(32) + '\n' if META['tool'] == 'n8n' else ''
@@ -75,11 +75,11 @@ def prepare():
         raise
 
 def compose(*args, capture=False):
-    return run(['docker', 'compose', '--project-name', META['project'], *args], cwd=RUNTIME, capture_output=capture, text=True)
+    return run(['docker', 'compose', '--project-name', META['project'], *args], cwd=RUNTIME, capture_output=capture, text=True, encoding="utf-8")
 
 def docker_check():
     run(['docker', 'info'], stdout=subprocess.DEVNULL)
-    v = subprocess.check_output(['docker', 'compose', 'version', '--short'], text=True).strip().lstrip('v').split('.')
+    v = subprocess.check_output(['docker', 'compose', 'version', '--short'], text=True, encoding="utf-8").strip().lstrip('v').split('.')
     if tuple(int(re.match(r'\d+', x).group()) for x in v[:2]) < (2,24):
         raise RuntimeError('Compose >=2.24 required')
 
@@ -152,7 +152,7 @@ def main():
     elif a.action == 'load-images':
         if not a.archive or not a.archive.is_file(): raise RuntimeError('--archive must name a trusted image archive')
         checksum_path = Path(str(a.archive)+'.sha256')
-        if not checksum_path.exists() or checksum_path.read_text().split()[0] != digest_file(a.archive):
+        if not checksum_path.exists() or checksum_path.read_text(encoding='utf-8').split()[0] != digest_file(a.archive):
             raise RuntimeError('Missing/mismatched archive checksum')
         run(['docker','image','load','-i',str(a.archive)]); print('Loaded. Run start; provider plugins may still need Internet.')
 

@@ -1,1 +1,1 @@
-980d611ea585a0bcaf8b8de6086ad16894281a75f65a2203b49a92adc3805f70  anythingllm-1.17.0-Windows11.zip
+f4060496c32a5ef0d35f40a76475ce7c2f4034e00cff495c1ffbf9c809bd86dc  anythingllm-1.17.0-Windows11.zip
