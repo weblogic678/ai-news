@@ -35,7 +35,7 @@
     }
   ],
   "blockers": [
-    "Dify, Flowise, AnythingLLM pinned images still downloading; runtime acceptance pending",
+    "Docker Desktop direct registry requests time out; Dify plugin pull returned access denied although the exact digest is publicly reachable through the shell network route. Same-digest mirror downloads continue; Dify, Flowise and AnythingLLM runtime tests pending.",
     "Real DeepSeek calls explicitly skipped by user",
     "Independent Linux server runtime validation not performed"
   ],
@@ -46,7 +46,7 @@
   "preview_images_captured": 8,
   "resume_policy": "Run locally from D:\\demo_xianyu; preserve private data under temp/private and report untested items truthfully.",
   "lease_expires_at": null,
-  "upload_complete": false,
+  "upload_complete": true,
   "active_worker": null,
   "scheduled_resume": {
     "enabled": false,
@@ -69,5 +69,6 @@
     "workbench_screenshot": "temp/docs/screenshots/windows-local-workbench.png",
     "product_runtime_screenshots_captured": 2,
     "report": "temp/docs/LOCAL-VALIDATION.md"
-  }
+  },
+  "github_commit": "bce13110df3c30570b6fd2be1da68db9dabf6f0b"
 }
