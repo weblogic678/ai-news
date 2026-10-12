@@ -2,12 +2,12 @@
 import importlib.util,json,sys,tempfile,unittest,subprocess
 from pathlib import Path
 from unittest.mock import patch
-ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'dify-1.17.1/linux-x86'))
+ROOT=Path(__file__).resolve().parents[2];SOURCE=ROOT/'temp/source-kits'
+sys.path.insert(0,str(SOURCE/'dify-1.17.1/linux-x86'))
 import demo_common as common
 
 def module(tool):
- p=ROOT/tool/'linux-x86/import-demo.py';s=importlib.util.spec_from_file_location(tool.replace('-','_'),p);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+ p=SOURCE/tool/'linux-x86/import-demo.py';s=importlib.util.spec_from_file_location(tool.replace('-','_'),p);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 D=module('dify-1.17.1');N=module('n8n-2.42.6')
 class Guards(unittest.TestCase):
  def test_loopback_only(self):

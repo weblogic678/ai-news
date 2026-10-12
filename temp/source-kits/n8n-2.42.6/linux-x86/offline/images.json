@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "tool": "n8n",
+  "version": "2.42.6",
+  "platform": "linux/amd64",
+  "archive": "images.tar.gz",
+  "sha256": "a5c6bce0043372b169bdececa43ad6a33eec5e051f9faadd569163a14bdb8483",
+  "bytes": 285813431,
+  "images": [
+    {
+      "canonical": "n8nio/n8n:2.42.6@sha256:526daa38b68e923cc00c5280d18b4da5d489f115a73bdbf3b8e452b184197a9a",
+      "local_tag": "ai-news-offline/n8n:2.42.6-0",
+      "source_id": "sha256:526daa38b68e923cc00c5280d18b4da5d489f115a73bdbf3b8e452b184197a9a"
+    }
+  ]
+}

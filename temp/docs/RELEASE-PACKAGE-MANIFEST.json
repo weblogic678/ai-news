@@ -1,0 +1,488 @@
+[
+  {
+    "project": "dify-1.17.1",
+    "platform": "Windows11",
+    "tar_sha256": "650d53968fee42f8d3232375a1208ba073553655e742415062b34f9a774f5684",
+    "tar_bytes": 3445032960,
+    "volumes": [
+      {
+        "name": "dify-1.17.1-Windows11-offline.part001.zip",
+        "sha256": "c8e06723d82615e7acf2870ecc078dd672fa2238f0eb27827a1a122905868c6f"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part002.zip",
+        "sha256": "85631e2b9018540eda72ecfd3b4997098c25d0618f1987a5bb348319dd027fa3"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part003.zip",
+        "sha256": "1bd7486b243a8d47153d747b44d2f85b12f4a112ddabe08182c26b434af07e90"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part004.zip",
+        "sha256": "50046422b959f6c80cf6f5283b08e87ed741e80c064bc48d9e785954cce520ec"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part005.zip",
+        "sha256": "78d5cd95e0545ae4158a6629c133e2825defb5f06870306d28acb4a27f43db18"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part006.zip",
+        "sha256": "8182c7bf01661162a5110ea0af65fa76d6d753cc7cfea2c98ed23f17b9d69761"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part007.zip",
+        "sha256": "f137d4bd543740956bd3b1aaeae7c55359e1dea7a8363bf4243f61522b5f2c53"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part008.zip",
+        "sha256": "566f3aeb28507fba2bc30c1773d5553983f899481c23f31cbe438964717f984e"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part009.zip",
+        "sha256": "d196c1c747cd4cd0e52efa0f6b4fb21b5c237554a96952642b780b0e0dfbd6f2"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part010.zip",
+        "sha256": "4609aa3b55cac73cc9d4cd6b9f23c7a09bedbe15674f3677bcef331fd2479fdf"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part011.zip",
+        "sha256": "4fadfcf8dc488c81a4a7f8d5b4e91f772cb9eff476bb54eb187f554ca5884fb4"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part012.zip",
+        "sha256": "4bf771ac76e1016f485b5187a806c909e16e6f2c44373e9b7b693bb6a1610282"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part013.zip",
+        "sha256": "a4bd78adb78ee2327761502358dc5455ff61e087ef2f5d70c39da81a6e619f9f"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part014.zip",
+        "sha256": "5df38cd341c551f0ca5d35fd12bebc239ab3865bf80f52bdd90904e77f6490ce"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part015.zip",
+        "sha256": "aa3764f4c05519abd6b006f997a8b1f93e3eb7d11b5eb1e58e6064ba59ea5a2e"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part016.zip",
+        "sha256": "e627bdbb3c51c3926503d1527d8ceca41508c2ea75d69dfca7c167c499d6da45"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part017.zip",
+        "sha256": "8000b3a8b4e057b8ce6a7a34ffe5df20de6acd56065b0af531bf7b9daca904ba"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part018.zip",
+        "sha256": "5b3d884f31386558fb9db23d42e2c11fae7a04113ba8039caa5f20c7c29f9cb9"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part019.zip",
+        "sha256": "1ad701eecfeedfa6dccf4b4d2c4559ebe5d0a0eca1bf3895446885ab7ee17f50"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part020.zip",
+        "sha256": "850294e56b8ea868052b022e2ec32535a06f35b1d020c0b9aa119e5d78c54c53"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part021.zip",
+        "sha256": "8059fb9def15146b3f250f80b0b7d9d58a7df0f52072a3b677a6155e9906c197"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part022.zip",
+        "sha256": "26be70bf904acf7ea1380344539e311a3026c03f61f80b9b49914cba7a4160b1"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part023.zip",
+        "sha256": "07cae10c2e0d0e26e8c62366371aa23f759e41409bc969e65f53bc42ea0a6d88"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part024.zip",
+        "sha256": "c6ea44465106cca1db4bfe2b171130ba69bb4a380c2a61291f485ee32927af40"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part025.zip",
+        "sha256": "39a14fd1ddfb429402b16cfde89be33e08940c1288afbc1651e7bfffe94d97a5"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part026.zip",
+        "sha256": "9924f95d9c18b9a8a799417124aade85665b38ac5264971eb5989011d1af9a24"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part027.zip",
+        "sha256": "402892d39826609fe8aaa73e217f473eea9ad00106634659223bddc343e7bba3"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part028.zip",
+        "sha256": "3577d7d1eda7452500857ea7288e0bbd951c4e7c725592001ab41119d8d89cd3"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part029.zip",
+        "sha256": "7c64975524a0f8e2421630c91a044700b8154fc4699bc25b183b49df17d9a95b"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part030.zip",
+        "sha256": "9c45001464cef7120b63104e37a672f7a910b1a47aac13e116a734bada9fe4c0"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part031.zip",
+        "sha256": "46f89f3c0134dbc1e890bc8c1a269a3b1a124b27dae4c032c739bc8fa0b9efc8"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part032.zip",
+        "sha256": "bef19648818741a49a1948713b9c868929d440aaac4e9f5efadb13d25dbe9d28"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part033.zip",
+        "sha256": "ae14a6893046352da98ede176a3772b0ed7d294b1c1e9b849835f7268db581e4"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part034.zip",
+        "sha256": "9a52ca9c532689509b19f6f937bdd5e1865bb2cb563b0b80183ebc59a4a525c4"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part035.zip",
+        "sha256": "3b82f9eb45427e806264d6161c95a2204b6e50655e624f507d6832be99276622"
+      },
+      {
+        "name": "dify-1.17.1-Windows11-offline.part036.zip",
+        "sha256": "52eac798d8b543630a5c4566f938a041a92a5ccc7898a14d08c1ecdccc1d1c45"
+      }
+    ],
+    "status": "archive-content-and-integrity-verified"
+  },
+  {
+    "project": "dify-1.17.1",
+    "platform": "linux-x86",
+    "tar_sha256": "a8465da6e5562b9387d468405b812e513c6a70a92cae7a9b24f597217a4c58bb",
+    "tar_bytes": 3077355520,
+    "volumes": [
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part001.gz",
+        "sha256": "d5a411015947543b0c408da6b387d7bc416546080b0fc1246ef76ea2dd0348a3"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part002.gz",
+        "sha256": "05ad0c34220420ebb63394cf531a225f1e2ef4d4572b7c3bc9e059e4e66216ac"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part003.gz",
+        "sha256": "305152ea372761cc18bbf9e24127e2b41e809677797b23d1c0d58d318550c48a"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part004.gz",
+        "sha256": "d8f33c4d6e147e7137448cb1b5a0ff573cefd5bdd9c411689edbda42770f027e"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part005.gz",
+        "sha256": "bda26bc655a00c79d97185dcf24ad9e2b936e493ba40f55838612ffb51df62df"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part006.gz",
+        "sha256": "901f7f668d5280b2178d21e6d757ef6d556636a539a3b59cfb25eb96708bd18d"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part007.gz",
+        "sha256": "a1a955e851e8ce417e5d97bf37c1af6b64306bbed028f6fa2b022dd15aeb74f0"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part008.gz",
+        "sha256": "6c42453221dae401bcf7be78cd2572710be614a235d3f81a0e827bb6499874f6"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part009.gz",
+        "sha256": "e26a0c5f864e77f03e3d29c6de91daf95f07a158666343afe41fec67a601e74d"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part010.gz",
+        "sha256": "cf05b23062e286356dd3e158382d1d7fb56849056e739f5c29a3bb57dddc296e"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part011.gz",
+        "sha256": "5917844de0f16913453d9f7bca94208f4ae7ade0a69c8ff811b8551dc89a570a"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part012.gz",
+        "sha256": "692e700b091e655cb7fabe61fb6098ed8acd90777d526da2c6bbf0d3d909369b"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part013.gz",
+        "sha256": "46efe36c093a746e74f90c05458fce49fa96c299c375aeb848097c1367db4972"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part014.gz",
+        "sha256": "9cdefe1dd5eb00bd02f856228e1f49c835c5d6ee082f7912931a66c5f60312a0"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part015.gz",
+        "sha256": "f4438f69ce5af69a2578e26737a8be9530b54c92b41519182f68e2eb82ea4351"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part016.gz",
+        "sha256": "327eb436f214179c7ac1b13d666b12bb90e182b02cca66fad6edaaa5055be01c"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part017.gz",
+        "sha256": "40476f9c8c40d3ca379c02e78b6afda62fc1211aaf64bdd5821085e18cb8f10b"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part018.gz",
+        "sha256": "1e1f506dd953a3b030657f5a24636ce48daff95491d48e98564146a31cc70612"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part019.gz",
+        "sha256": "72db04a4f6fe87bc07a2b99e0a667298200c754a5fd47ef346017daca77dee4d"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part020.gz",
+        "sha256": "038bee1d199611859832971770e5c4fb740256fef4b358fc0fbcfc986b1b2d96"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part021.gz",
+        "sha256": "717ad3688fce1783c5bac1c4ef4a6afacdecd82caaf48e3b7a961d9827adc945"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part022.gz",
+        "sha256": "574daf5a0e1a57403a6153453314f5ff0bc6c0d362f28b0ee7cdb132e2b84fb8"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part023.gz",
+        "sha256": "781cf3a13072be9003355db23030b93005e4b9ff16c5447547e33a56a3838b1a"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part024.gz",
+        "sha256": "4b9af9fffb2893672095359f85d97d553e19c4e1b5086ec0453aa2171217f536"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part025.gz",
+        "sha256": "f77d55d6681619de7dcecba979f9402ae18e5d6cb8ff4896f24ef8a4b080ce24"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part026.gz",
+        "sha256": "0c6b59c5cae581b193f0e31398c08c8012ea6b589e30bafe97a0ea380762f043"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part027.gz",
+        "sha256": "91cbe0288b261f8f5d4ac3671065cea7509bd86dfc726ea68b4765c1fae8faeb"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part028.gz",
+        "sha256": "58e0e58261da6eaad69a3266ca6a6b32f77a14aebce7e6a3abc58ae270663151"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part029.gz",
+        "sha256": "fa1189ca8201227a5207914b38e80efeb6efa9cccbf230143fb3f5050a5e3f4e"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part030.gz",
+        "sha256": "7c9cd6ed35cbc064b5beab9e90412e606bf66c27ba4af5e8135fda462bfaa29b"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part031.gz",
+        "sha256": "3981f261df89e2bd93be83426195ee671a06d713c41e6b5960a620f8c4c31a54"
+      },
+      {
+        "name": "dify-1.17.1-linux-x86-offline.part032.gz",
+        "sha256": "18e3da9961ed2fec9939d53d7c9cc6dbfd374a41084998671222cbcf7bc7709f"
+      }
+    ],
+    "status": "archive-content-and-integrity-verified"
+  },
+  {
+    "project": "flowise-2.2.8",
+    "platform": "Windows11",
+    "tar_sha256": "92ca99999d1a6f68882ccdf55b1880434df8646008f778e91b5f37f59878de5e",
+    "tar_bytes": 1412065280,
+    "volumes": [
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part001.zip",
+        "sha256": "f73127857c523ad6e84b594c432673ce1573cbdf0b253ae23358bdc8d03701d6"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part002.zip",
+        "sha256": "efcb41e06a8bf9ca8c8ee2ddb0cafd739bbb3486397113afa411ef59db300788"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part003.zip",
+        "sha256": "1aa9f75fa273df6748384a5c50dd29bc998442bbcdf391f189592392ac804aba"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part004.zip",
+        "sha256": "abeef0d21ab9fc8dbaa455fcd6bec4c6077d959f3f30227afa416038d83b77b1"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part005.zip",
+        "sha256": "7813bf8b81c79c5f1a7140acec38b282f74ca37831e5048ed0d5d22909a7a11b"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part006.zip",
+        "sha256": "41cd918df4b7cbe05364339af3025e4cc3230ed4f42834f4d6efd2447d412fb4"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part007.zip",
+        "sha256": "26441eb61a235e1348bc7f4c364ca554256af2df4cc66b214d66e33a4bc49fa0"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part008.zip",
+        "sha256": "405bbbff8d438cd2cd87ae63907c0376c5caddc137ff0601a4a76c283b337f84"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part009.zip",
+        "sha256": "ba36205d4ef3b100d7f95e256c1082ac0bad749483e62f3a6c1f7a57ed1e5c8e"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part010.zip",
+        "sha256": "cac89ac23bae846267f8baef8520f07133c3070b706bc3e0540f196f256ab094"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part011.zip",
+        "sha256": "315bc42854098f3bc1a34668e261321a538816071beca319afee29d600630ae3"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part012.zip",
+        "sha256": "137afa8067f4f29564132d9c5540253ef949eb4b4027da766642c8ca74978c50"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part013.zip",
+        "sha256": "b2d70bfe23e1d9b1bc4b6471df40eef51dc1eae87c6939f7b7844f0cd78ad69c"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part014.zip",
+        "sha256": "8b9193fb2a5a3cff1f8ee7e92eed26af8c17899dc87085118a8bb147c59db026"
+      },
+      {
+        "name": "flowise-2.2.8-Windows11-offline.part015.zip",
+        "sha256": "f5143f545a66e57f4670b6ee0aa465ccd32bcf3540c090c04c60d861e5d5c5a2"
+      }
+    ],
+    "status": "archive-content-and-integrity-verified"
+  },
+  {
+    "project": "flowise-2.2.8",
+    "platform": "linux-x86",
+    "tar_sha256": "cddd211c000800382ec022741ccdde29ee5e740830352f5e31b1759517857a1e",
+    "tar_bytes": 1044398080,
+    "volumes": [
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part001.gz",
+        "sha256": "f242fb9fc6b8e0b22f7e1bb05213aa82d89d0bcbc45687ec6c4f630b0df0c0e2"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part002.gz",
+        "sha256": "81cbc6ae812771fc3a52735337a3320b8f8d2db5bb1e6731c1cbc0b9de913ad0"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part003.gz",
+        "sha256": "485578fff0564fdfecc4215d62a14324689fc467152c4293ed9127e6bae95716"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part004.gz",
+        "sha256": "9646350f6e27a2f0fd14154a8a3c2202bae6d73759659742a638c6fb58212f09"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part005.gz",
+        "sha256": "b8533d927f79de9109a3e5cf08f02e2bc7ddce04346b2b8875d07634f251ff68"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part006.gz",
+        "sha256": "f598525ca4dcec15c67848ea918b1949f90bc0819145f1181913463636de6554"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part007.gz",
+        "sha256": "c5a59f59108c7ed9547038069fe4d0893f87579266dec083494b042f63764244"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part008.gz",
+        "sha256": "885b5289b56d9eb1ded47ba80794f6de51f5c816c47ab4d25ad7cb52cb184696"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part009.gz",
+        "sha256": "256b88c4eabd5516c983b2f457ea7a3e4ef80310b071ec9b0a3c6a2b9b968aea"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part010.gz",
+        "sha256": "5b50d4480d9875c8d3825af52948dfee1e4c5c6f982265a0ee9d90881825bc03"
+      },
+      {
+        "name": "flowise-2.2.8-linux-x86-offline.part011.gz",
+        "sha256": "d4f924fb1a1da06b4a6b199e5f610e144e48d50348a2acafd448fe95675ac973"
+      }
+    ],
+    "status": "archive-content-and-integrity-verified"
+  },
+  {
+    "project": "n8n-2.42.6",
+    "platform": "Windows11",
+    "tar_sha256": "f5261a39d82e2fd99ebf9b3fc1d338dd4a4bb2684bf86dba33b96fffa0ccbe8f",
+    "tar_bytes": 846622720,
+    "volumes": [
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part001.zip",
+        "sha256": "04d584ac9bdbe67053e3b47d08db7283afab02c76d9718dad3641fddd81f2d47"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part002.zip",
+        "sha256": "d92d609527eb6ebca76eb41c054364993175a4e337bd9a0f04948113f04ac489"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part003.zip",
+        "sha256": "6afe13f2ec7c12e91c536b1b50525685b2dde08ae8254aeb979d1ded425d6baa"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part004.zip",
+        "sha256": "de691fa1bb8c1885e51ecd90c99fe5db75bc26ee02a1879a730be931f265571d"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part005.zip",
+        "sha256": "7c742578999eb41e09b153aff09c6e06d33b7c93ab2a62ddc9cb2b98a4eaa1b4"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part006.zip",
+        "sha256": "21c81e9827f7276b6af584fbbf7d13d068e61526a25c9ad9fa702396788b6b14"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part007.zip",
+        "sha256": "9fb5d574bd150e8f5d5cc20ab1bc1794f547f75ff8e31c400d915ecfcd0ffcdd"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part008.zip",
+        "sha256": "300dde964465138024de3f2dbbdf1cc88abc779ab1e88d34e0f453d2eeadb57b"
+      },
+      {
+        "name": "n8n-2.42.6-Windows11-offline.part009.zip",
+        "sha256": "454afc4a6fd83345f7f30164e0be8cb9efa90d4cc6c1803cd42ed71126e6f23b"
+      }
+    ],
+    "status": "archive-content-and-integrity-verified"
+  },
+  {
+    "project": "n8n-2.42.6",
+    "platform": "linux-x86",
+    "tar_sha256": "3acb63f833cf6578ec58c1db548b19ba9916490e3433629302dedf32c4988a9e",
+    "tar_bytes": 478955520,
+    "volumes": [
+      {
+        "name": "n8n-2.42.6-linux-x86-offline.part001.gz",
+        "sha256": "02e4f99ad446f6914fe694dbcaf2bb9b1f4f1ece19aa516c4ae43c76b0f0feea"
+      },
+      {
+        "name": "n8n-2.42.6-linux-x86-offline.part002.gz",
+        "sha256": "e3945dd145fd4151ee7ccb9109e64c927ca56c0c9423e4d2407593d92d00a0ae"
+      },
+      {
+        "name": "n8n-2.42.6-linux-x86-offline.part003.gz",
+        "sha256": "defec5ecec6272198c39653c3667f24142f60d745e1a4bd1fc5786bded3e6198"
+      },
+      {
+        "name": "n8n-2.42.6-linux-x86-offline.part004.gz",
+        "sha256": "a0f3efbe9b2a262e3b1a14f9f1afac76b45c1dcc134dd922adc701bdfb48d09d"
+      },
+      {
+        "name": "n8n-2.42.6-linux-x86-offline.part005.gz",
+        "sha256": "ba890c7b708cc42b39b6d29ff933de08b392a698c737f71d705308efad56af65"
+      }
+    ],
+    "status": "archive-content-and-integrity-verified"
+  }
+]

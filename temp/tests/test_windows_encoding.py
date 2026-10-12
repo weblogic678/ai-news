@@ -6,12 +6,13 @@ import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
+SOURCE = ROOT / 'temp/source-kits'
 
 
 class WindowsEncodingTests(unittest.TestCase):
     def test_n8n_demo_uses_utf8_under_gbk_locale(self):
         for platform in ('Windows11', 'linux-x86'):
-            folder = ROOT / 'n8n-2.42.6' / platform
+            folder = SOURCE / 'n8n-2.42.6' / platform
             code = """
 import importlib.util, json, locale
 from pathlib import Path

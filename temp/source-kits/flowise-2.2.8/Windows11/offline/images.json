@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "tool": "flowise",
+  "version": "2.2.8",
+  "platform": "linux/amd64",
+  "archive": "images.tar.gz",
+  "sha256": "7ecfdf6aa4177f9ffc300be0a04f59f47dc6c3bde84085b69a3db8bea91352c1",
+  "bytes": 851277354,
+  "images": [
+    {
+      "canonical": "flowiseai/flowise:2.2.8@sha256:84e52b955e44303780f0b309d468d30e41c4866c4ceee3bc9215bfa645d3f6f5",
+      "local_tag": "ai-news-offline/flowise:2.2.8-0",
+      "source_id": "sha256:da0f7b07184e8fe99326e7d946ac3f2e5969069c0ed1b9d0c03026425d8b8549"
+    }
+  ]
+}

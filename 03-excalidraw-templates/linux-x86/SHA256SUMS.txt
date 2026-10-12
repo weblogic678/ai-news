@@ -1,2 +1,0 @@
-28d7d679f05617ce28c5a44c97229cf2ffcede730c90380a333cd01a4658d476  03-excalidraw-templates-linux-x86.zip
-ebb8c50bb0f9c82ae4aa60735cc037440eaa78828f2a8737c5c9df8804b6242b  03-excalidraw-templates-linux-x86.tar.gz

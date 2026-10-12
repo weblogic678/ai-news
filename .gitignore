@@ -18,3 +18,11 @@ backup-*.partial
 temp/private/
 temp/automation/runs/
 temp/automation/work/
+
+# Docker Desktop stays local; public directories provide the official downloader.
+**/Windows11/docker/Docker-Desktop-*.exe
+**/docker/*.partial
+**/.offline-runtime/
+**/offline/images.tar.gz
+**/*.zip.partial
+/发布版/flowise-3.1.4/

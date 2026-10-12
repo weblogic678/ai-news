@@ -1,55 +1,27 @@
-# 本机验收记录
+# 本机离线验收记录
 
-日期：2026-10-12。项目根目录为 D:\demo_xianyu，目标仓库 weblogic678/ai-news。
+日期：2026-10-12。本机 Windows 11 专业版 64 位（10.0.28000）。目录：D:\demo_xianyu。目标仓库：weblogic678/ai-news。
 
-| 项目 | 验收结果 |
+| 项目 | 已验证内容 |
 | --- | --- |
-| n8n 2.42.6 | Windows Docker 固定 digest 启动、网页 200、实际版本确认通过 |
-| n8n 工作流 | 两份 JSON 实际导入；重复导入未重复创建；基础工作流在 CLI 与浏览器执行成功，中文输出一致 |
-| n8n 数据保留 | 重启及迁移至 temp/private 后重新执行成功 |
-| n8n 冷备份恢复 | 停机备份；恢复到独立项目、空 volume 和新端口；owner 保留，两个工作流导出和基础执行通过；恢复测试实例已停止 |
-| Dify 1.17.1 | 配置与打包检查通过；固定镜像仍在下载，真实部署、工作流和恢复未完成 |
-| Flowise 3.1.4 | 配置与打包检查通过；固定镜像仍在下载，真实部署和恢复未完成 |
-| AnythingLLM 1.17.0 | 配置与打包检查通过；固定镜像仍在下载，真实部署和恢复未完成 |
-| DeepSeek | 用户明确选择跳过真实调用；未产生模型测试费用 |
-| Linux | 本机 WSL2 Debian 13 回归通过；独立 Linux 服务器未部署 |
+| Dify 1.17.1 | 固定摘要的 12 个 amd64 镜像离线加载；独立 WSL/Engine 部署；管理员登录和 CSRF；两个草稿导入且重复导入不重复创建；中文模板工作流三步运行成功，模型用量 0；停机归档恢复后原账号与工作流保留，运行再次成功；另在新 PostgreSQL 数据目录独立恢复，应用、账号和运行记录核对通过 |
+| n8n 2.42.6 | 固定镜像离线加载；独立 WSL/Engine 部署；两个流程导入且重复导入不重复创建；CLI 与浏览器执行中文无模型流程；停机备份恢复到新的独立数据卷后，原流程 ID 保留且示例再次运行成功 |
+| Flowise 2.2.8 | 官方社区镜像实际版本 2.2.8，未包含 enterprise 目录；独立 WSL/Engine 离线部署；未认证 API 返回 401，认证后流程保存/读取/导出通过；真实 Custom JS Function 流程返回准确中文结果；停机备份恢复到新的独立数据卷后，原流程 ID、代码与账号保留，读取后直接运行再次通过（未重建流程） |
+| 回归 | 29 项 Python 自动检查通过；Windows WSL 前置依赖另有三项隔离分支检查及真实已就绪分支运行通过，包括重复准备保留密钥与数据、错误版本/架构拒绝安装、镜像完整性、Docker 项目归属和发布目录结构 |
+| 压缩包审计 | 六套 ZIP/GZ 离线包的分包校验、组合 TAR 内容检查通过；镜像、Docker Engine 29.9.0、Compose 5.6.0、Python 3.14.8、离线网络库与许可证齐全；Windows 另含 Debian 根文件系统和 WSL 3.0.1 MSI |
 
-n8n 固定镜像：n8nio/n8n:2.42.6@sha256:526daa38b68e923cc00c5280d18b4da5d489f115a73bdbf3b8e452b184197a9a。未用缓存旧版本代替其他产品的固定版本验收。
+Windows 安装入口在本机执行；Linux 分包入口在本机 WSL2 验证，独立 Linux 实机未验收。没有做干净 Windows 硬件上的 BIOS/系统功能启用验收。真实 DeepSeek/其他模型调用按用户要求跳过，不宣称模型推理完成。
 
-## 环境与回归
+离线范围为软件安装与基础运行环境；模型权重、云 API 和第三方插件不包含在交付中。独立 Engine 不修改系统防火墙，联网功能须另外配置。
 
-Windows 11 专业版 x64 10.0.28000；Python 3.14；Docker Desktop 4.93.0、Engine 29.8.1、Compose 5.5.1、desktop-linux，8 CPU / 约 7.63 GiB 内存。
+Flowise 3.1.4 因其镜像包含受商业许可限制的 enterprise 内容，已从公开交付中移除，替换为 Apache 2.0 社区版 2.2.8。Docker Desktop 安装包仅保留本机，公开包使用 Moby/Docker Engine。
 
-安装、导入与保护回归：Windows 22 项通过；WSL2 Debian 13 / Python 3.13.5 同套 22 项通过。自动化回归此前 Windows 20 项通过、1 项跳过（符号链接权限）；WSL 全部 21 项通过。迁移后自动化回归复核得到相同结果。
+账号、密码、原运行卷、恢复测试卷和备份均保留在本机私有目录或独立 WSL 的私有 Docker 存储；没有放进交付压缩包。旧 3.1.4 测试 WSL 已完整导出并校验到 temp/private，旧发布目录已移入 temp。
 
-发现并修复 Windows GBK 默认读取中文 UTF-8 文件的问题；安装器、导入器和 Docker 输出统一 UTF-8。PDF 原始样例因 Git CRLF 转换造成索引偏移，已恢复 LF 字节并设置 .gitattributes 将 PDF 保持为二进制，复测无解析警告。Dify 新增随机 Agent API token，替换上游开发用默认值。增加强制 GBK 导入回归，以及仓库运行映射禁止逃出 temp/private 的回归。
+## 真实页面截图
 
-## 文件布局与隐私
+- [Dify 中文运行](screenshots/dify-offline-smoke.png)
+- [n8n 无模型流程运行](screenshots/n8n-offline-smoke.png)
+- [Flowise 恢复后的流程](screenshots/flowise-offline-restored.png)
 
-- 根目录 images/：每款仅一张闲鱼发布封面；仅显示软件名、版本、一键安装及小写系统名。验收范围与待完成项保留在本报告和发布描述.md；旧图及运行截图移入 temp/listing-history/20261012-simple-covers/。
-- 根目录 发布描述.md：七个项目的集中发布文案。
-- 各交付项目 Windows11/、linux-x86/：一键入口、说明、ZIP；Linux 另有 TAR.GZ 与校验值。
-- temp/：维护脚本、测试、公开报告、来源许可、历史材料。
-- temp/private/：私密账户、日志、运行映射、配置、数据与备份，Git 忽略，交付包不包含。
-
-买家安装包默认使用自己的 runtime/；本仓库通过仅本机存在的映射把运行配置移至 temp/private/runtime/。Docker named volume 保留原数据，不做清空或广泛 prune。
-
-## n8n 真实界面
-
-以下来自实际本机 n8n 浏览器工作流运行，截图避开账户和凭据。
-
-![真实工作流](../listing-history/20261012-simple-covers/n8n-2.42.6/03-real-workflow.png)
-
-![真实输出](../listing-history/20261012-simple-covers/n8n-2.42.6/04-real-output.png)
-
-PDF 已从官方发行页下载 Windows v0.16.1 并校验 checksum，补测合并页数与顺序、拆分、优化、输入校验值不变、拒绝覆盖及一键示例，全部通过。结果见 PDF-WINDOWS-VALIDATION.json；下载程序与输出留 temp/private，不随包分发。CyberChef / Excalidraw 的既有验证细节保留在 temp/projects/，本轮未重测。
-
-## 继续验收
-
-三款固定镜像下载完成后，再记录产品启动、版本、重复运行、冷备份与独立恢复。Dify 另需真实导入与基础工作流运行。模型调用继续遵从用户的跳过选择。待验收项目不能因为配置测试或图片制作完成而标记通过。
-
-## 同步与剩余阻塞
-
-交付目录、图片、文案与公开维护资料已推送 GitHub main，bce1311；远端哈希核对一致。23 个 ZIP/TAR.GZ（含两份 Dify 上游配置 ZIP）的 SHA256、464 个成员路径与暂存公开内容检查通过，没有本机秘密、运行数据或备份。后续报告同步不改变这项验收结论。
-
-Docker Desktop 直连 Registry 超时；Dify 插件拉取报 access denied，但通过本机命令环境网络路径可确认官方同一 digest 返回 HTTP 200，因此没有替换版本或借用旧镜像。仍尝试同 digest 镜像源；三款产品实机验收未完成。临时只读传输试验未成功，已停止，没有修改 Docker 全局网络设置。
+咸鱼封面独立放在 `发布版/images`，每个项目仅一张。发行分包完整性清单见 `RELEASE-PACKAGE-MANIFEST.json`。

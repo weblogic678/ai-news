@@ -1,0 +1,14 @@
+{
+  "tool": "flowise",
+  "version": "2.2.8",
+  "project": "ai-news-flowise-2-2-8",
+  "url": "http://localhost:3000",
+  "arch": "amd64",
+  "data_path": "/home/node/.flowise",
+  "image": "flowiseai/flowise:2.2.8",
+  "checked_at": "2026-10-12",
+  "image_digests": {
+    "flowiseai/flowise:2.2.8": "sha256:84e52b955e44303780f0b309d468d30e41c4866c4ceee3bc9215bfa645d3f6f5"
+  },
+  "license": "Apache-2.0"
+}

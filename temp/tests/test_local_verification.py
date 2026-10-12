@@ -2,8 +2,8 @@
 import importlib.util,sys,subprocess,unittest
 from pathlib import Path
 from unittest.mock import Mock
-ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'dify-1.17.1/linux-x86'))
-s=importlib.util.spec_from_file_location('verify_local',ROOT/'dify-1.17.1/linux-x86/verify-local.py');V=importlib.util.module_from_spec(s);s.loader.exec_module(V)
+ROOT=Path(__file__).resolve().parents[2];SOURCE=ROOT/'temp/source-kits';sys.path.insert(0,str(SOURCE/'dify-1.17.1/linux-x86'))
+s=importlib.util.spec_from_file_location('verify_local',SOURCE/'dify-1.17.1/linux-x86/verify-local.py');V=importlib.util.module_from_spec(s);s.loader.exec_module(V)
 META={'tool':'fixture','version':'1','project':'fixture','url':'http://localhost:8080'}
 class Checks(unittest.TestCase):
  def test_missing_daemon_never_attempts_http(self):

@@ -9,15 +9,15 @@ import zipfile
 from pathlib import Path
 from unittest.mock import patch
 
-ROOT=Path(__file__).resolve().parents[2]
-PROJECTS=['dify-1.17.1','n8n-2.42.6','flowise-3.1.4','anythingllm-1.17.0']
+ROOT=Path(__file__).resolve().parents[2];SOURCE=ROOT/'temp/source-kits'
+PROJECTS=['dify-1.17.1','n8n-2.42.6','flowise-2.2.8']
 
 class InstallTests(unittest.TestCase):
     def test_repository_mapping_keeps_runtime_private_and_rejects_escape(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);(root/'.git').mkdir();private=root/'temp/private';private.mkdir(parents=True)
             base=root/'n8n-2.42.6/Windows11';base.mkdir(parents=True)
-            source=self.module(ROOT/'n8n-2.42.6/Windows11')
+            source=self.module(SOURCE/'n8n-2.42.6/Windows11')
             mapping=private/'runtime-paths.json'
             key=source.META['project']+':Windows11'
             mapping.write_text(json.dumps({key:'temp/private/runtime/n8n'}),encoding='utf-8')
@@ -35,7 +35,7 @@ class InstallTests(unittest.TestCase):
 
     def kit(self, temp, name):
         target=Path(temp)/name
-        shutil.copytree(ROOT/name/'linux-x86',target,ignore=shutil.ignore_patterns('runtime','__pycache__','*.tar.gz'))
+        shutil.copytree(SOURCE/name/'linux-x86',target,ignore=shutil.ignore_patterns('runtime','__pycache__','*.tar.gz'))
         return self.module(target)
 
     def test_repeat_prepare_preserves_keys_and_user_data(self):
@@ -90,18 +90,15 @@ class InstallTests(unittest.TestCase):
             self.assertNotEqual(env['DB_PASSWORD'],'difyai123456')
             self.assertIn('"127.0.0.1:${EXPOSE_NGINX_PORT', (m.RUNTIME/'docker-compose.yaml').read_text())
 
-    def test_packages_extract_with_nested_upstream_and_no_runtime(self):
+    def test_public_release_layout_and_size_limits(self):
         for name in PROJECTS:
-            for system in ['Windows11','linux-x86']:
-                folder=ROOT/name/system
-                for entry in (folder/'SHA256SUMS.txt').read_text().splitlines():
-                    digest,file=entry.split('  ',1)
-                    self.assertEqual(hashlib.sha256((folder/file).read_bytes()).hexdigest(),digest)
-                with zipfile.ZipFile(next(p for p in folder.glob('*.zip') if p.name!='upstream-docker.zip')) as z:
-                    self.assertIsNone(z.testzip())
-                    self.assertIn('installer.py',z.namelist())
-                    self.assertIn('操作步骤.md',z.namelist())
-                    self.assertFalse(any(x.startswith('runtime/') or x.endswith('app.env') for x in z.namelist()))
-                    if name.startswith('dify'):self.assertIn('upstream-docker.zip',z.namelist())
+            for system in ('Windows11','linux-x86'):
+                folder=ROOT/'发布版'/name/system
+                files=[p for p in folder.iterdir() if p.is_file()]
+                expected={'操作步骤.md','install-offline.ps1','一键安装.cmd'} if system=='Windows11' else {'操作步骤.md','一键安装.sh'}
+                self.assertEqual({p.name for p in files if p.suffix not in ('.zip','.gz')},expected)
+                parts=[p for p in files if p.suffix in ('.zip','.gz')]
+                self.assertTrue(parts)
+                self.assertTrue(all(p.stat().st_size<100*1024*1024 for p in parts))
 
 if __name__=='__main__':unittest.main()

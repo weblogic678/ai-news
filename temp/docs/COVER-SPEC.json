@@ -1,48 +1,27 @@
 {
   "generator": "built-in imagegen",
   "format": "square PNG",
-  "style": "warm yellow background, dark bold centered typography",
   "exact_lines": [
     "{software}",
     "v{version}",
-    "一键安装",
+    "离线一键安装",
     "windows 11 / linux x86_64"
   ],
   "assets": [
     {
-      "software": "pdfcpu",
-      "version": "0.16.1",
-      "path": "images/01-pdf-batch/cover.png"
-    },
-    {
-      "software": "CyberChef",
-      "version": "11.5.0",
-      "path": "images/02-cyberchef-recipes/cover.png"
-    },
-    {
-      "software": "Excalidraw",
-      "version": "0.18.1",
-      "path": "images/03-excalidraw-templates/cover.png"
-    },
-    {
-      "software": "AnythingLLM",
-      "version": "1.17.0",
-      "path": "images/anythingllm-1.17.0/cover.png"
-    },
-    {
       "software": "Dify",
       "version": "1.17.1",
-      "path": "images/dify-1.17.1/cover.png"
-    },
-    {
-      "software": "Flowise",
-      "version": "3.1.4",
-      "path": "images/flowise-3.1.4/cover.png"
+      "path": "发布版/images/dify-1.17.1.png"
     },
     {
       "software": "n8n",
       "version": "2.42.6",
-      "path": "images/n8n-2.42.6/cover.png"
+      "path": "发布版/images/n8n-2.42.6.png"
+    },
+    {
+      "software": "Flowise",
+      "version": "2.2.8",
+      "path": "发布版/images/flowise-2.2.8.png"
     }
   ]
 }

@@ -2,5 +2,7 @@
 *.png -text
 *.zip -text
 *.gz -text
+*.tgz -text
+**/linux-x86/docker/docker-compose-* -text
 *.sh text eol=lf
 *.cmd text eol=crlf
